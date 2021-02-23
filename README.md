@@ -97,8 +97,79 @@ Créer une nouvelle class `QuestionNotFoundException` qui entend la class Runtim
 Écrire le test qui vérifie la même chose pour les mauvaises Reponses.
 
 ___
-### Exercice 4
+### Exercice 4 : Le controller
 Creer un controller pour les questions qui utilise les methode du service.
 
 Pour lier le service a spring creer une class annoté de l'annotation @Configuration et ayant un bean retournant @QuestionService et retournant un instance QuestionService Impl. Ce bean prend en parametre un Question repository pour faire l'injection.
+___
+### Exercice 5 : Les formulaires
 
+Cette partie est plus libre. Le but est d'utiliser la même méthode pour créer un système de formulaire.
+Un formulaire est un ensemble de question.
+
+Un utilisateur peut envoyer un NouveauFormulaire contenant un titre et un ensemble de questions pour le sauvegarder et l'ajouter à un repository de formulaire sous forme de formulaire. Il doit pouvoir aussi répondre aux questions du formulaire en une fois et avoir l'ensemble des résultats en plus de sa note et son nombre de bonnes réponses.
+
+Il faudra developper les interfaces suivantes:
+- ``FormulaireRepository``
+- ``FormulaireService``
+
+Et les classes:
+- ``FakeFormulaireRepository``
+- ``FormulaireServiceImpl``
+- ``FormulaireController``
+- ``TestFormulaireService``
+- ``NouveauFormulaire``
+- ``ResultatFormulaire``
+- ``Formulaire``
+
+Exceptions:
+- ``FormulaireNotFoundException``
+- ``FormulaireInvalideException``
+- ``QuestionInvalideException``
+
+Voici les cas d'utilisation:
+- lorsqu'un utilisateur envoie un Nouveau Formulaire:
+    - l'application (le service dans un premier temps puis le contrôler) doit retourner un formulaire contenant le titre et la liste des questions.
+    - Le titre du formulaire ne doit pas être vide.
+    - Le titre des questions ne doit pas être vide.
+    - Les réponses valides des questions ne doivent pas être vide.
+- Lorsque l'utilisateur evoie ses réponses:    
+    - si l'id du formulaire n'est pas valide alors il y a un message d'erreur du type 404    
+    - La réponse retournée à l'utilisateur doit contenir son score (par exemple 8/10), son pourcentage (80%), et les résultats des questions.    
+    - Si l'utilisateur ne fournit pas toutes les réponses elles doivent être compté comme faux et le retour doit lister les questions restées sans réponse.
+
+Dans vos controller remplacer les exceptions par des exceptions de type `ResponceHttpStatus`.
+
+___
+### __Exercice 6:__ Notes utilisateur
+Le but est de faire un système pour sauvegarder les notes d'un utilisateur.Pour cela creer un NoteRepository et un FakeNoteRepository.
+
+Lorsqu'un utilisateur soumet des résultats à un formulaire, l'application sauvegarde sa note ainsi que les id de ses bonnes ou mauvaises réponses.
+
+Il est possible de rechercher les notes d'un utilisateur grace à son pseudonyme.
+
+Il est possible de rechercher les notes d'un utilisateur grace à son pseudonyme.
+
+Il est possible d'avoir une moyenne des notes d'un utilisateur grace à son pseudonyme.
+
+Il est possible de connaitre la moyenne des notes d'un formulaire.
+
+Il est possible de connaitre la moyenne des notes d'une question d'un formulaire.
+
+Il est possible de connaitre le nombre de personnes ayant répondu à un formulaire.
+
+Il est possible d'avoir la liste des formulaires en ayant uniquement son titre, le nombre de questions et le pouentage moyen. (pas les questions en elle-même).
+
+Il est possible de connaitre la date de création d'un formulaire.
+___
+### __Exercice 7:__ Formulaire ++
+
+Ajoutons certaines fonctionnalités aux formulaires.Chaque question à une valeur (la question vaut 1 point, 2 points ou 5 points). De base, les questions valent 1 point.
+
+Chaque question à une difficulté notée entre 0 (très facile) et 5 (très difficile).
+
+Quand un utilisateur recupere la liste des formulaires il peut connaitre le niveau median des questions.
+
+Quand un utilisateur répond aux questions son score prend en compte la valeur des questions.
+
+Il est possible de donner, lors de la création d'une question, un descriptif de la solution. Cette information n'est pas fournie uniquement lors de la réponse.
