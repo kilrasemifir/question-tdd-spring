@@ -67,6 +67,7 @@ ___
 
 #### __Exercice 2.1__
 Écrire un test qui vérifie que la méthode Question Service ::sauvegarder Question sauvegarde bien la question dans le repository.Vous devez utiliser la méthode `Question Repository :: findbyid` du repository (donner en attribut de la classe de test) pour vérifier que la question a bien été sauvegarder.Cette méthode utilise la méthode `Question Service ::nouvelle Question` pour transformer `NouvelleQuestion` passer en paramètre en question.
+
 Pour faire le test nous utilisons un Fake repository. C'est ce que l'on appelle un bouchon. Il permet de faire le test sans avoir besoin d'une base de données.
 Puis faite le code minimal pour répondre à votre test.
 
@@ -100,7 +101,7 @@ ___
 ### Exercice 4 : Le controller
 Creer un controller pour les questions qui utilise les methode du service.
 
-Pour lier le service a spring creer une class annoté de l'annotation @Configuration et ayant un bean retournant @QuestionService et retournant un instance QuestionService Impl. Ce bean prend en parametre un Question repository pour faire l'injection.
+Pour lier le service a spring creer une class annoté de l'annotation `@Configuration` et ayant un bean retournant `@QuestionService` et retournant un instance `QuestionService Impl`. Ce bean prend en parametre un Question repository pour faire l'injection.
 ___
 ### Exercice 5 : Les formulaires
 
@@ -167,6 +168,8 @@ ___
 Ajoutons certaines fonctionnalités aux formulaires.Chaque question à une valeur (la question vaut 1 point, 2 points ou 5 points). De base, les questions valent 1 point.
 
 Chaque question à une difficulté notée entre 0 (très facile) et 5 (très difficile).
+
+Un utilisateur peut rechercher les formulaires en fonction de leurs difficultés.
 
 Quand un utilisateur recupere la liste des formulaires il peut connaitre le niveau median des questions.
 
