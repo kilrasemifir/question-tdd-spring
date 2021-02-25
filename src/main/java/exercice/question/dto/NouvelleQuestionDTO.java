@@ -9,7 +9,7 @@ import lombok.Data;
  * Cette classe permet de creer une nouvelle question.
  */
 @Data
-public class NouvelleQuestion {
+public class NouvelleQuestionDTO {
 
 	/**
 	 * Titre de la question

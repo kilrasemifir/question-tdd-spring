@@ -5,7 +5,8 @@ ___
 Le but de cet exercice est de créer un backend avec Spring en commençant par le service.
 Nous allons utiliser J. Unit 5 pour faire nos testent unitaires.
 ___
-## Prérequis ### Technologies
+## Prérequis 
+### Technologies
 - JDK 11
 - Spring Tool Suite 4 (STS4) avec le plugiciel EclEmma pour le coverage de code.
 
@@ -15,6 +16,7 @@ ___
 - Utilisation des testes.
 - Notions de bases de TDD
 ___
+
 ## Initialiser le projet:
 
 1. Dans un dossier correctement placé (par exemple ```D:/dev/spring```) cloner le projet depuis le repository github.
@@ -66,14 +68,14 @@ ___
 ### __Exercice 2:__ CRUD des questions.
 
 #### __Exercice 2.1__
-Écrire un test qui vérifie que la méthode Question Service ::sauvegarder Question sauvegarde bien la question dans le repository.Vous devez utiliser la méthode `Question Repository :: findbyid` du repository (donner en attribut de la classe de test) pour vérifier que la question a bien été sauvegarder.Cette méthode utilise la méthode `Question Service ::nouvelle Question` pour transformer `NouvelleQuestion` passer en paramètre en question.
+Écrire un test qui vérifie que la méthode `QuestionService::sauvegarderQuestion`  sauvegarde bien la question dans le repository.Vous devez utiliser la méthode `Question Repository :: findbyid` du repository (donner en attribut de la classe de test) pour vérifier que la question a bien été sauvegarder.Cette méthode utilise la méthode `Question Service ::nouvelle Question` pour transformer `NouvelleQuestion` passer en paramètre en question.
 
 Pour faire le test nous utilisons un Fake repository. C'est ce que l'on appelle un bouchon. Il permet de faire le test sans avoir besoin d'une base de données.
 Puis faite le code minimal pour répondre à votre test.
 
 #### __Exercice 2.2__
 
-Ecrire un test qui verifie qu'apres avoir sauvegarder une nouvelle question vous pouvez utiliser la methode `QuestionService::trouverQuestionParId` pour recuperer la methode.
+Ecrire un test qui verifie qu'apres avoir sauvegarder une nouvelle question vous pouvez utiliser la methode `QuestionService::trouverQuestionParId` pour recuperer la question.
 Puis faite le code minimal pour repondre a votre test.
 ___
 ### __Exercice 3:__ Verfication des reponses de l'utilisateur

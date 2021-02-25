@@ -3,7 +3,10 @@ package exercice.question.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * Une question contient:
@@ -17,12 +20,13 @@ import lombok.Data;
  * 
  */
 @Data
-public class Question {
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class QuestionEntity {
 
 	private long id;
 	private String titre;
 	private List<Reponse> reponses = new ArrayList<>();
-	public void setId(int id) {
-		this.id = id;		
-	}
+	
 }

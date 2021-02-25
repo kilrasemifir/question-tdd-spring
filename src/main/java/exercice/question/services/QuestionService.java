@@ -1,9 +1,9 @@
 package exercice.question.services;
 
-import exercice.question.dto.NouvelleQuestion;
+import exercice.question.dto.NouvelleQuestionDTO;
 import exercice.question.dto.ReponseUtilisateur;
 import exercice.question.dto.ResultatQuestion;
-import exercice.question.entities.Question;
+import exercice.question.entities.QuestionEntity;
 
 /**
  * Cette interface definie les methodes du service de verification des questions.
@@ -14,7 +14,7 @@ public interface QuestionService {
 	 * @param nouvelleQuestion a transformer. 
 	 * @return Question creer a partir de l'objet nouvelleQuestion
 	 */
-	public Question nouvelleQuestion(NouvelleQuestion nouvelleQuestion);
+	public QuestionEntity nouvelleQuestion(NouvelleQuestionDTO nouvelleQuestion);
 	/**
 	 * Cette methode verifie que les reponses de l'utilisateurs correspondent aux reponses valides de la question.
 	 * @param reponsesUtilisateur
@@ -27,11 +27,11 @@ public interface QuestionService {
 	 * @param id
 	 * @return
 	 */
-	public Question trouverQuestionParId(long id);
+	public QuestionEntity trouverQuestionParId(long id);
 	/**
 	 * Sauvegarde une nouvelle question.
 	 * @param nouvelleQuestion donner par un utilisateur.
 	 * @return Question sauvegarder.
 	 */
-	public Question sauvegarderQuestion(NouvelleQuestion nouvelleQuestion);
+	public QuestionEntity sauvegarderQuestion(NouvelleQuestionDTO nouvelleQuestion);
 }
